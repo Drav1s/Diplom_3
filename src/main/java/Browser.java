@@ -13,7 +13,7 @@ public class Browser {
                 return new ChromeDriver();
 
             case "yandex":
-                System.setProperty("webdriver.chrome.driver", "C:/Users/Diplom/Diplom_3/src/main/resources/yandexdriver.exe");
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver.exe");
                 options.setBinary("C:/Users/Андрей/AppData/Local/Yandex/YandexBrowser/Application/browser.exe");
                 return new ChromeDriver(options);
 

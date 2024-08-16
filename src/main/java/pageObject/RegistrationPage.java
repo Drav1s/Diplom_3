@@ -12,16 +12,16 @@ public class RegistrationPage {
     }
 
     //Поле для ввода имени
-    private final By inputNameSignUp = By.xpath(".//fieldset/div/div/input");
+    private final By inputNameSignUp = By.xpath(".//fieldset/div/div/input[@class = 'text input__textfield text_type_main-default']");
 
     //Поле для ввода email
-    private final By inputEmailSignUp = By.xpath(".//fieldset[2]/div/div/input");
+    private final By inputEmailSignUp = By.xpath(".//fieldset[2]/div/div/input[@class = 'text input__textfield text_type_main-default']");
 
     //Поле для ввода пароля
-    private final By inputPasswordSignUp = By.xpath(".//fieldset[3]/div/div/input");
+    private final By inputPasswordSignUp = By.xpath(".//fieldset[3]/div/div/input[@class = 'text input__textfield text_type_main-default']");
 
     //Кнопка "Зарегистрироватсья"
-    private final By signUpButton = By.xpath(".//button");
+    private final By signUpButton = By.xpath(".//button[text()='Зарегистрироваться']");
 
     //Кнопка "Войти"
     private final By loginButton = By.xpath(".//a[@href='/login']");

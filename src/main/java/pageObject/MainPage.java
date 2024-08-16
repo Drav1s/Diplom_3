@@ -15,31 +15,22 @@ public class MainPage {
     private final By personalAccount = By.xpath(".//a[@href='/account']");
 
     //"Конструктор" в верхней панели
-    private final By designer = By.xpath(".//li");
+    private final By designer = By.xpath(".//li/a[@href='/']");
 
     //"stellar burgers" в верхней панели
-    private final By logo = By.xpath(".//div/a[@href='/']");
+    private final By logo = By.className("AppHeader_header__logo__2D0X2");
 
     //"Булки" в ценре
-    private final By buns = By.xpath(".//div/div/main/section/div/div/span");
+    private final By buns = By.xpath(".//span[text() = 'Булки']");
 
     //"Соусы" в ценре
-    private final By sauces = By.xpath(".//div/div/main/section/div/div[2]/span");
+    private final By sauces = By.xpath(".//span[text() = 'Соусы']");
 
     //"Начинки" в ценре
-    private final By toppings= By.xpath(".//div/div/main/section/div/div[3]/span");
+    private final By toppings= By.xpath(".//span[text() = 'Начинки']");
 
     //"Войти в аккаунт" в ценре
     private final By logIn = By.xpath(".//button[@class = 'button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_large__G21Vg']");
-
-    //Локатор соуса Spicy-x
-    private final By spicySauce = By.xpath(".//a[@href = '/ingredient/61c0c5a71d1f82001bdaaa72']");
-
-    //Локатор начинки Protostomia
-    private final By protostomiaTopping = By.xpath(".//a[@href = '/ingredient/61c0c5a71d1f82001bdaaa6f']");
-
-    //Локатор булки R2-D3
-    private final By bunsRD = By.xpath(".//a[@href = '/ingredient/61c0c5a71d1f82001bdaaa6d']");
 
     //Клик на кнопку "Личный кабинет" в верхней панели
     public void clickPersonalAccount(){
@@ -81,18 +72,21 @@ public class MainPage {
         return driver.findElement(sauces).isDisplayed();
     }
 
-    //Видимость соуса Spice-x
-    public boolean isVisibleSpicySauce() {
-        return driver.findElement(spicySauce).isDisplayed();
+    //Соусы активны
+    public boolean isSaucesSelected() {
+        String getAttribute = driver.findElement(By.xpath(".//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[2]")).getAttribute("class");
+        return (getAttribute.equals("tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"));
     }
 
-    //Видимость начинки Protostomia
-    public boolean isVisibleProtostomia() {
-        return driver.findElement(protostomiaTopping).isDisplayed();
+    //Булки активны
+    public boolean isBunsSelected() {
+        String getAttribute = driver.findElement(By.xpath(".//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[1]")).getAttribute("class");
+        return (getAttribute.equals("tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"));
     }
 
-    //Видимость булки R2-D3
-    public boolean isVisibleRD() {
-        return driver.findElement(bunsRD).isDisplayed();
+    //Начинки активны
+    public boolean isToppingsSelected() {
+        String getAttribute = driver.findElement(By.xpath(".//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[3]")).getAttribute("class");
+        return (getAttribute.equals("tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect"));
     }
 }

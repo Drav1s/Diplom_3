@@ -6,13 +6,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import pageObject.LoginPage;
 import pageObject.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.Assert.assertTrue;
 import static pageObject.CONSTANT.URL_MAIN_PAGE;
 
 @RunWith(Parameterized.class)
@@ -48,7 +46,7 @@ public class DesignerTest {
         MainPage mainPage = new MainPage(driver);
 
         mainPage.clickSauces();
-        mainPage.isVisibleSpicySauce();
+        assertTrue(mainPage.isSaucesSelected());
 
 
     }
@@ -62,7 +60,7 @@ public class DesignerTest {
         MainPage mainPage = new MainPage(driver);
 
         mainPage.clickToppings();
-        mainPage.isVisibleProtostomia();
+        assertTrue(mainPage.isToppingsSelected());
 
     }
 
@@ -76,7 +74,7 @@ public class DesignerTest {
 
         mainPage.clickSauces();
         mainPage.clickBuns();
-        mainPage.isVisibleRD();
+        assertTrue(mainPage.isBunsSelected());
 
     }
 
